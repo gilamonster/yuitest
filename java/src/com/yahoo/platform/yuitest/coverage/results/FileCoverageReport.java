@@ -312,10 +312,12 @@ public class FileCoverageReport {
 
             //update function calls
             String[] functionNames = getFunctionNames();
-            for (int i=0; i < functionNames.length; i++){
-                report1.getJSONObject("functions").put(functionNames[i],
-                        (getFunctionCallCount(functionNames[i]) + report.getFunctionCallCount(functionNames[i])));
+            if (functionNames != null) {
+                for (int i=0; i < functionNames.length; i++){
+                    report1.getJSONObject("functions").put(functionNames[i],
+                            (getFunctionCallCount(functionNames[i]) + report.getFunctionCallCount(functionNames[i])));
 
+                }
             }
 
             //re-create file lines and functions
